@@ -1,0 +1,51 @@
+spring:
+  redis:
+    host: localhost
+
+    port: 6379
+
+    database: 0
+
+    timeout: 2000
+
+    client-name: redisClient
+
+    lettuce:
+      pool:
+        # Maximum number of connections that can be allocated by the pool at a given time. Use a negative value for no limit.
+        max-active: 8
+
+        # Maximum amount of time (in milliseconds) a connection allocation should block before throwing an exception when the pool is exhausted. Use a negative value to block indefinitely.
+        max-wait: -1
+
+        # Maximum number of idle connections in the pool.
+        max-idle: 8
+
+        # Minimum number of idle connections in the pool.
+        min-idle: 0
+
+        # Connection timeout in milliseconds.
+        shutdown-timeout: 100
+
+    # Properties for connection using Jedis client.
+    jedis:
+      pool:
+        # Maximum number of idle connections in the pool.
+        max-idle: 8
+
+        # Minimum number of idle connections in the pool.
+        min-idle: 0
+
+    # Cache-specific configuration.
+    cache:
+      # Time-to-live for cache entries. Default is -1 (no TTL).
+      time-to-live: 60000
+
+      # Whether to allow null values in the cache.
+      cache-null-values: true
+
+      # Whether to use key prefix for cache entries.
+      use-key-prefix: true
+
+      # Key prefix for cache entries. Default is '::'.
+      key-prefix: 'myprefix::'
